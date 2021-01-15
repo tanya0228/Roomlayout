@@ -95,7 +95,7 @@
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #fffef2;
+/*   background-color: #f5f5dc; */
   color: white;
 }
 
