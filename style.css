@@ -1,11 +1,621 @@
-/* CSS files add styling rules to your content */
+/** {box-sizing:border-box}*/
+
+/* Slideshow container */
+
+/*
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+*/
+
+/* Hide the images by default */
+
+/*
+.mySlides {
+  display: none;
+}
+*/
+
+/* Next & previous buttons */
+
+/*
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+*/
+
+/* Position the "next button" to the right */
+
+/*
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+*/
+
+/* On hover, add a black background color with a little bit see-through */
+/*
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+*/
+
+/* Caption text */
+
+/*
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+*/
+
+/* Number text (1/3 etc) */
+
+/*
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+*/
+
+/* The dots/bullets/indicators */
+
+/*
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+*/
+
+/* Fading animation */
+
+/*
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+*/
+
+
+
+/*menu experiment*/
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+/*Start of experment*/
 
 body {
-  font-family: helvetica, arial, sans-serif;
-  margin: 2em;
+    font-family: "Spartan", sans-serif;
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
 }
 
-h1 {
-  font-style: italic;
-  color: #373fff;
+
+/* Global */
+
+:root {
+    --dark-gray: hsl(0, 0%, 63%);
+    --black: hsl(0, 0%, 0%);
+    --white: hsl(0, 0%, 100%);
+    --very-dark-gray: hsl(0, 0%, 27%);
 }
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.hide-on-lg {
+    display: block;
+}
+
+.hide-on-sm {
+    display: none;
+}
+
+button {
+    background: transparent;
+    border: none;
+    outline: none;
+    margin: 2rem 0 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    padding: 0;
+    color: var(--very-dark-gray);
+    letter-spacing: 0.5 rem;
+}
+
+svg {
+    cursor: pointer;
+}
+
+button svg {
+    margin-left: 1rem;
+}
+
+button:hover,
+button svg path:hover {
+    color: var(--dark-gray);
+    fill: var(--dark-gray);
+}
+
+.navigate {
+    position: absolute;
+    top: 290px;
+    right: 0;
+    z-index: 1000;
+    background: var(--black);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.next,
+.prev {
+    padding: 1rem;
+    cursor: pointer;
+}
+
+.next:hover,
+.prev:hover {
+    background: var(--dark-gray);
+}
+
+
+/* Nav & Carousel */
+
+.header-content {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.toggle {
+    flex-grow: 0.5;
+}
+
+.current {
+    display: block !important;
+}
+
+.slide {
+    height: 350px;
+    width: 100%;
+    animation: opacity 0.8s;
+    position: relative;
+    background-color: black;
+}
+
+@keyframes opacity {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.slide-1 {
+    background: url("./images/mobile-image-hero-1.jpg") no-repeat center center/cover;
+}
+
+.slide-2 {
+    background: url("./images/mobile-image-hero-2.jpg") no-repeat center center/cover;
+}
+
+.slide-3 {
+    background: url("./images/mobile-image-hero-3.jpg") no-repeat center center/cover;
+}
+
+.slide-1,
+.slide-2,
+.slide-3 {
+    display: none;
+}
+
+
+/* Showcase */
+
+section {
+    height: auto;
+    width: 100%;
+    padding: 3rem 0;
+    animation: opacity 0.5s;
+    position: relative;
+}
+
+.showcase-content h1 {
+    font-size: 25px;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.showcase-content p {
+    font-size: 13px;
+    color: var(--dark-gray);
+}
+
+.show-1,
+.show-2,
+.show-3 {
+    display: none;
+}
+
+.current-2 {
+    display: block !important;
+}
+
+
+/* About */
+
+.about {
+    height: auto;
+    padding: 3rem 2rem 2rem;
+    background: var(--white);
+    width: 100%;
+}
+
+.about-content h1 {
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1rem;
+}
+
+.about-content p {
+    font-size: 13.5px;
+    color: var(--dark-gray);
+}
+
+
+/* Img */
+
+.img-dark {
+    background: url("./images/image-about-dark.jpg") no-repeat center center/cover;
+    height: 300px;
+    width: 100%;
+}
+
+.img-light {
+    background: url("./images/image-about-light.jpg") no-repeat center center/cover;
+    height: 300px;
+    width: 100%;
+}
+
+
+/* Menu */
+
+/*
+.menu {
+    position: fixed;
+    height: 0;
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.2);
+    transition: height 0.5s;
+}
+
+.menu-content {
+    background: var(--white);
+    padding: 1rem 2rem 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.menu-content li {
+    display: inline;
+    padding: 0 0.5rem;
+}
+
+.menu-content a {
+    color: var(--black);
+}
+
+.menu-content a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}
+
+.close {
+    flex-grow: 0.5;
+}
+
+*/
+
+/*media */
+@media screen and (min-width: 700px) {
+    .showcase-content h1 {
+        width: 400px;
+        font-size: 40px;
+    }
+    .showcase-content p {
+        width: 550px;
+        font-size: 15px;
+    }
+    .about h1 {
+        font-size: 30px;
+    }
+    .about p {
+        width: 550px;
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .container {
+        width: 900px;
+    }
+    .hide-on-lg {
+        display: none;
+    }
+    .hide-on-sm {
+        display: block;
+    }
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        padding: 2rem;
+    }
+    .logo {
+        flex-grow: 0.1;
+    }
+    nav li {
+        display: inline-flex;
+        padding: 0 0.5rem;
+        color: var(--white);
+        text-transform: lowercase;
+    }
+    nav li p:hover {
+        border-bottom: solid 2px var(--white);
+    }
+/*
+    .slide-1 {
+        background: url("./images/desktop-image-hero-1.jpg") no-repeat center center/cover;
+    }
+    .slide-2 {
+        background: url("./images/desktop-image-hero-2.jpg") no-repeat center center/cover;
+    }
+    .slide-3 {
+        background: url("./images/desktop-image-hero-3.jpg") no-repeat center center/cover;
+    }
+*/
+    .slides {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+    }
+    .slide {
+        height: 60vh;
+        width: 60vw;
+        overflow: hidden;
+    }
+    .showcase-content {
+        height: 60vh;
+        width: 40vw;
+        padding: 5rem 0 0 2rem;
+        animation: right 0.5s;
+        position: relative;
+        overflow: hidden;
+    }
+    .showcase-content h1 {
+        font-size: 30px;
+        width: 300px;
+        line-height: 1.2;
+    }
+    .showcase-content p {
+        width: 300px;
+        font-size: 10px;
+    }
+    .navigate {
+        top: 402px;
+        right: 222px;
+    }
+    .next,
+    .prev {
+        padding: 1rem 2.5rem;
+        cursor: pointer;
+    }
+    button {
+        font-size: 25px;
+        margin: 3rem 0;
+        letter-spacing: 0.5rem;
+    }
+    .wrapper-1 {
+        display: flex;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+    }
+    .about,
+    .img-dark,
+    .img-light {
+        height: 40vh;
+    }
+    .about-content {
+        padding: 1rem 2rem;
+    }
+    .about h1 {
+        font-size: 30px;
+    }
+    .about p {
+        width: 450px;
+        margin: 0;
+        font-size: 12px;
+    }
+    .attribution {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 1000px;
+    }
+    .showcase-content {
+        height: 60vh;
+        width: 40vw;
+        padding: 2rem 0 0 2rem;
+        animation: right 0.5s;
+        position: relative;
+        overflow: hidden;
+    }
+    .showcase-content h1 {
+        font-size: 40px;
+        width: 400px;
+        line-height: 1.2;
+    }
+    .showcase-content p {
+        width: 450px;
+        font-size: 15px;
+    }
+    .navigate {
+        top: 358px;
+        right: 350px;
+    }
+    .next,
+    .prev {
+        padding: 1rem 2.1rem;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    .container {
+        width: 1200px;
+    }
+    .navigate {
+        top: 517px;
+        right: 433px;
+    }
+    .next,
+    .prev {
+        padding: 1rem 1.8rem;
+    }
+    .about-content {
+        padding-top: 3rem;
+    }
+}
+
+/* Don't delete*/
+
+/*
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}*/
